@@ -1,0 +1,96 @@
+---
+import { SITE } from "../const/site";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+const { title, description, canonical, ogImage = "/og-gng.jpg", jsonLd = [], noindex = false } = Astro.props;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, SITE.url).toString();
+---
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  {noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
+  <meta name="geo.region" content={SITE.geoRegion} />
+  <meta name="geo.placename" content="Üsküdar, İstanbul" />
+  <meta name="theme-color" content="#f59e0b" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={new URL(ogImage, SITE.url).toString()} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Search Console + GA4: doğrulama kodunu buraya ekleyin
+  <meta name="google-site-verification" content="BURAYA" />
+  -->
+  {jsonLd.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+</head>
+<body>
+  <a class="skip" href="#icerik">İçeriğe atla</a>
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a class="brand" href="/" aria-label="GNG Hafriyat ana sayfa"><span class="brand-badge">GNG</span> Hafriyat</a>
+      <nav aria-label="Ana menü">
+        <a href="/#hizmetler">Hizmetler</a>
+        <a href="/#bolgeler">Bölgeler</a>
+        <a href="/#sss">SSS</a>
+        <a href="/iletisim">İletişim</a>
+      </nav>
+      <div class="top-cta">
+        <a class="btn ghost" href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
+        <a class="btn wa" href={SITE.whatsapp} rel="noopener" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+  <main id="icerik"><slot /></main>
+  <footer class="footer">
+    <div class="wrap foot-grid">
+      <div>
+        <strong>GNG Hafriyat</strong>
+        <p>İstanbul Kadıköy / Üsküdar / Maltepe ve çevresinde hafriyat, kazı, yıkım, nakliye, kanal kazısı ve tesviye. Kepçe, ekskavatör, forklift çatalı ve damperli kamyonlarla güvenli, temiz, zamanında teslim.</p>
+        <p>NAP: GNG Hafriyat · {SITE.phoneDisplay} · Üsküdar / İstanbul · 7/24 Açık</p>
+      </div>
+      <div>
+        <strong>Hizmetler</strong>
+        <ul>
+          <li><a href="/hizmetler/temel-kazisi">Temel Kazısı</a></li>
+          <li><a href="/hizmetler/kanal-kazisi">Kanal Kazısı</a></li>
+          <li><a href="/hizmetler/arazi-tesviyesi">Arazi Tesviyesi</a></li>
+          <li><a href="/hizmetler/moloz-tasima">Moloz Taşıma</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Bölgeler</strong>
+        <ul>
+          <li><a href="/kadikoy-hafriyat">Kadıköy Hafriyat</a></li>
+          <li><a href="/uskudar-hafriyat">Üsküdar Hafriyat</a></li>
+          <li><a href="/maltepe-hafriyat">Maltepe Hafriyat</a></li>
+          <li><a href="/iletisim">Teklif Al</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap small">© 2026 GNG Hafriyat · İş Makinesi Kiralama Hizmeti · <a href="/sitemap-index.xml">Site Haritası</a></div>
+  </footer>
+  <div class="sticky-cta" role="navigation" aria-label="Hızlı iletişim">
+    <a href={SITE.phoneHref}>📞 Hemen Ara</a>
+    <a href={SITE.whatsapp} rel="noopener" target="_blank">💬 WhatsApp</a>
+  </div>
+</body>
+</html>

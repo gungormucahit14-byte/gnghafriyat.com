@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE, FAQS } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Maltepe Hafriyat, Moloz Nakliyesi ve Temel Dolgusu – GNG Hafriyat";
+const description = "Maltepe'de hafriyat toprağı nakliyesi, moloz taşıma, temel kazısı ve tesviye. Damperli kamyon filosuyla seri sefer, lisanslı bertaraf. 0537 743 61 20";
+const jsonLd = [localBusinessJson(), faqJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Maltepe Hafriyat",url:SITE.url+"/maltepe-hafriyat"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Maltepe Hafriyat</p>
+<h1>Maltepe Hafriyat, Nakliye ve Saha Tesviyesi</h1>
+<p>Maltepe'de büyük şantiye, depo sahası ve yol projelerinde güçlüyüz: çok kamyonlu hafriyat toprağı nakliyesi, inşaat atığı yükleme, yıkım molozu kaldırma ve bertaraf, arazi tesviyesi ve inşaat temel dolgusu yapıyoruz. E-5 ve sahil yolu lojistiğini bildiğimiz için sefer başına maliyeti düşürüyoruz. Kepçe, ekskavatör ve forklift çatalı ile yükleme, damperli kamyonlarla kesintisiz taşımayı birleştiriyoruz.</p>
+<ul><li>Seri sefer planı, beklemesiz yükleme.</li><li>Döküm sahası fişi ile şeffaf hakediş.</li><li>Yol ve saha tesviyesinde sağlam zemin.</li></ul>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#fff" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp</a></div>
+<h2>Maltepe SSS</h2><div class="faq">{FAQS.slice(0,6).map((f)=>(<details><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+<p class="muted"><a href="/kadikoy-hafriyat">Kadıköy</a> · <a href="/uskudar-hafriyat">Üsküdar</a> · <a href="/">Ana Sayfa</a></p>
+</div>
+</Base>

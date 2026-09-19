@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE, FAQS } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Kadıköy Hafriyat, Kazı ve Moloz Taşıma | Fikirtepe Kozyatağı Suadiye – GNG";
+const description = "Kadıköy'de hafriyat, temel kazısı, moloz taşıma, kanal kazısı ve tesviye. Fikirtepe, Osmanağa, Kozyatağı, Suadiye, Erenköy, Göztepe, Bostancı'da aynı gün kepçe + damperli kamyon. 0537 743 61 20";
+const jsonLd = [localBusinessJson(), faqJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Kadıköy Hafriyat",url:SITE.url+"/kadikoy-hafriyat"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Kadıköy Hafriyat</p>
+<h1>Kadıköy Hafriyat, Temel Kazısı ve Moloz Taşıma</h1>
+<p>GNG Hafriyat, Kadıköy'ün tüm mahallelerinde — Fikirtepe, Osmanağa, Kozyatağı, Suadiye, Erenköy, Göztepe, 19 Mayıs, Acıbadem, Bostancı, Feneryolu, Koşuyolu, Hasanpaşa, Rasimpaşa, Dumlupınar, Fenerbahçe, Merdivenköy, Sahrayı Cedit — hafriyat, kazı, yıkım, nakliye, kanal kazısı ve tesviye yapar. Kentsel dönüşüm şantiyelerinde temel kazısı, dar sokaklarda mini kepçe ile moloz yükleme, inşaat atığı ve hafriyat atığı bertarafı ana işimizdir.</p>
+<h2>Kadıköy'de neden biz?</h2>
+<ul><li>Fikirtepe şantiye trafiğine hakimiz, sefer planını polen saatine göre yapıyoruz.</li><li>Apartman önü molozda aynı gün damperli kamyon + brandalı temiz taşıma.</li><li>Temel dolgusu ve çevre düzenlemede kotlu serme, vibrasyonlu sıkıştırma.</li><li>Lisanslı döküm fişi teslim, kaçak döküm yok.</li></ul>
+<h2>Hizmetler</h2>
+<p>Temel kazısı, arazi tesviyesi, kanal kazısı, yıkım molozu kaldırma, hafriyat toprağı nakliyesi, inşaat temel dolgusu. Kepçe, ekskavatör, forklift çatalı ve damperli kamyon filosu ile.</p>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#fff" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp</a></div>
+<h2>Kadıköy SSS</h2><div class="faq">{FAQS.slice(0,5).map((f)=>(<details><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+<p class="muted">Diğer bölgeler: <a href="/uskudar-hafriyat">Üsküdar Hafriyat</a> · <a href="/maltepe-hafriyat">Maltepe Hafriyat</a> · <a href="/">Ana Sayfa</a></p>
+</div>
+</Base>

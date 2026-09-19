@@ -1,0 +1,35 @@
+---
+import Base from "../../layouts/Base.astro";
+import { SITE } from "../../const/site";
+import { localBusinessJson, breadcrumbJson } from "../../lib/schema";
+export function getStaticPaths() {
+  return [
+    { params: { slug: "temel-kazisi" } },
+    { params: { slug: "kanal-kazisi" } },
+    { params: { slug: "arazi-tesviyesi" } },
+    { params: { slug: "moloz-tasima" } },
+    { params: { slug: "yikim-molozu-kaldirma" } },
+    { params: { slug: "hafriyat-nakliyesi" } },
+  ];
+}
+const data = {
+  "temel-kazisi": ["Temel Kazısı ve Temel Dolgusu | İstanbul – GNG", "İnşaat temel kazısı, temel dolgusu ve çevre düzenlemesi. Kepçe ve ekskavatörle kotunda güvenli kazı, damperli kamyonla nakliye. 0537 743 61 20"],
+  "kanal-kazisi": ["Kanal Kazısı ve Altyapı | İstanbul – GNG Hafriyat", "Drenaj, tesisat ve altyapı için kanal kazısı, dar hat açma ve geri dolgu. Üsküdar Kadıköy Maltepe'de aynı gün ekip. 0537 743 61 20"],
+  "arazi-tesviyesi": ["Arazi Tesviyesi ve Saha Düzenleme – GNG Hafriyat", "Arsa, bahçe, yol ve şantiye tesviyesi. Kotlu serme, sıkıştırma ve yol altyapısı. Kepçe + kamyon filosu. 0537 743 61 20"],
+  "moloz-tasima": ["Moloz Taşıma ve İnşaat Atığı Nakliyesi – GNG", "Yıkım molozu, inşaat atığı, hafriyat atığı yükleme ve lisanslı sahaya nakliye. Fiş teslimli, aynı gün kamyon. 0537 743 61 20"],
+  "yikim-molozu-kaldirma": ["Yıkım Molozu Kaldırma ve Bertaraf – GNG Hafriyat", "Bina ve daire yıkım sonrası moloz kaldırma, bertaraf ve temiz teslim. Kadıköy Üsküdar Maltepe'de hızlı ekip. 0537 743 61 20"],
+  "hafriyat-nakliyesi": ["Hafriyat Toprağı Nakliyesi – GNG Hafriyat", "Hafriyat toprağı yükleme ve damperli kamyonla nakliye, döküm fişli bertaraf. Seri sefer planı. 0537 743 61 20"],
+};
+const slug = Astro.params.slug ?? "temel-kazisi";
+const [title, description] = data[slug] ?? Object.values(data)[0];
+const jsonLd = [localBusinessJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:title.split("|")[0].trim(),url:SITE.url+Astro.url.pathname}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Hizmet</p>
+<h1>{title.split("|")[0]}</h1>
+<p>{description} GNG Hafriyat; kepçe, ekskavatör, forklift çatalı ve damperli kamyonlarla güvenli, temiz ve zamanında çalışır. Küçük veya büyük tüm işlerde ücretsiz keşif yapılır.</p>
+<ul><li>Kadıköy, Üsküdar, Maltepe ve 20 mahallede 7/24 hizmet</li><li>Lisanslı döküm ve bertaraf fişi</li><li>Fotoğrafla ön fiyat, keşifle net m³</li></ul>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#fff" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp</a></div>
+<p><a href="/kadikoy-hafriyat">Kadıköy</a> · <a href="/uskudar-hafriyat">Üsküdar</a> · <a href="/maltepe-hafriyat">Maltepe</a> · <a href="/iletisim">İletişim</a></p>
+</div>
+</Base>

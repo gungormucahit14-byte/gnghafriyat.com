@@ -1,0 +1,16 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE, AREAS } from "../const/site";
+import { localBusinessJson, breadcrumbJson } from "../lib/schema";
+const title = "İletişim | GNG Hafriyat – 0537 743 61 20 | Üsküdar İstanbul";
+const description = "GNG Hafriyat iletişim: 0537 743 61 20, WhatsApp ile 7/24 teklif. Üsküdar merkez, Kadıköy Maltepe ve çevresinde ücretsiz keşif.";
+const jsonLd = [localBusinessJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"İletişim",url:SITE.url+"/iletisim"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / İletişim</p>
+<h1>İletişim ve Teklif</h1>
+<p><strong>Telefon:</strong> <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a><br/><strong>WhatsApp:</strong> <a href={SITE.whatsapp} target="_blank" rel="noopener">Sohbeti başlat →</a><br/><strong>Çalışma:</strong> Pazar–Cumartesi 24 saat açık<br/><strong>Bölge:</strong> Üsküdar / İstanbul – Kadıköy, Maltepe ve çevresi</p>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 Hemen Ara</a><a class="btn big" style="background:#22c55e;color:#fff" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp</a></div>
+<h2>Hizmet bölgeleri</h2><p>{AREAS.map(a=>a.name).join(" · ")}</p>
+</div>
+</Base>

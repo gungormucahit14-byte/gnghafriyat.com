@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE, FAQS } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Üsküdar Hafriyat, Kanal Kazısı ve Tesviye | 7/24 Kepçe – GNG Hafriyat";
+const description = "Üsküdar'da hafriyat, temel kazısı, kanal kazısı, tesviye ve moloz nakliyesi. Merkez üsten 7/24 aynı gün kepçe, ekskavatör, damperli kamyon. 0537 743 61 20";
+const jsonLd = [localBusinessJson(), faqJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Üsküdar Hafriyat",url:SITE.url+"/uskudar-hafriyat"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Üsküdar Hafriyat</p>
+<h1>Üsküdar Hafriyat ve Altyapı Kazıları</h1>
+<p>Merkezimiz Üsküdar'da. Bu yüzden Üsküdar ve çevresinde — Koşuyolu, Acıbadem, Altunizade hattı dahil — en hızlı biz ulaşırız. Yokuşlu ve dar sokaklarda tecrübeliyiz: mini kepçe ile bahçe kazısı, bodrum molozu çıkarma, istinat ve drenaj için kanal kazısı, arsa tesviyesi ve yol altyapısı yapıyoruz. İnşaat temel çevre düzenleme ve temel dolgusunda temiz, tozsuz çalışma prensibiyle çalışırız.</p>
+<h2>Üsküdar'da öne çıkanlar</h2>
+<ul><li>Boğaz hattı ve sitelerde sessiz saat planlaması, komşu hassasiyeti.</li><li>Altyapı ve drenaj kanal kazısında düzgün şev, güvenli iksa yönlendirmesi.</li><li>Arsa ve bahçe tesviyesinde kotlu serme + sıkıştırma.</li><li>Tek kamyon molozdan büyük temel kazısına kadar aynı özen.</li></ul>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#fff" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp</a></div>
+<h2>Üsküdar SSS</h2><div class="faq">{FAQS.slice(2,7).map((f)=>(<details><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+<p class="muted"><a href="/kadikoy-hafriyat">Kadıköy</a> · <a href="/maltepe-hafriyat">Maltepe</a> · <a href="/">Ana Sayfa</a></p>
+</div>
+</Base>

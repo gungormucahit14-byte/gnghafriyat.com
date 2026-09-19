@@ -1,0 +1,90 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE, SERVICES, AREAS, FAQS } from "../const/site";
+import { localBusinessJson, websiteJson, faqJson, breadcrumbJson } from "../lib/schema";
+
+const title = "İstanbul Hafriyat, Kazı, Yıkım ve Nakliye | Kadıköy Üsküdar Maltepe – GNG Hafriyat";
+const description = "GNG Hafriyat: Kadıköy, Üsküdar, Maltepe ve çevresinde hafriyat, temel kazısı, kanal kazısı, tesviye, moloz taşıma ve yıkım molozu kaldırma. Kepçe, ekskavatör, damperli kamyonla 7/24 aynı gün hizmet. 0537 743 61 20";
+const jsonLd = [
+  localBusinessJson(),
+  websiteJson(),
+  faqJson(),
+  breadcrumbJson([{ name: "Ana Sayfa", url: SITE.url + "/" }]),
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <div class="hero">
+    <div class="wrap">
+      <p class="muted" style="color:#fde68a">Üsküdar merkez · 7/24 Açık · Aynı gün kepçe</p>
+      <h1>İstanbul Anadolu Yakası Hafriyat, Kazı, Yıkım ve Nakliye</h1>
+      <p class="lead">GNG Hafriyat, İstanbul Kadıköy / Üsküdar / Maltepe ve çevresinde hafriyat, kazı, yıkım, nakliye, kanal kazısı ve tesviye hizmetleri sunar. Temel kazısı, arazi tesviyesi, moloz taşıma, inşaat atığı ve hafriyat atığı yükleme, hafriyat toprağı nakliyesi, yıkım molozu kaldırma ve bertaraf işlerini kepçe, ekskavatör, forklift çatalı ve damperli kamyonlarla güvenli, temiz ve zamanında yaparız. Küçük veya büyük tüm işlerde güvenilir hizmet.</p>
+      <div class="hero-cta">
+        <a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a>
+        <a class="btn big" style="background:#22c55e;color:#fff;border-color:#16a34a" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Teklif Al</a>
+      </div>
+      <ul class="trust">
+        <li>✓ 7/24 açık</li>
+        <li>✓ Ücretsiz keşif</li>
+        <li>✓ Lisanslı döküm fişi</li>
+        <li>✓ Kepçe + ekskavatör + damperli kamyon</li>
+        <li>✓ Aynı gün moloz kaldırma</li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="hizmetler"><div class="wrap">
+    <h2>Hafriyat Hizmetlerimiz</h2>
+    <p class="muted">İnşaat, arsa, bahçe, yol ve altyapı projelerinde anahtar teslim hafriyat.</p>
+    <div class="grid g3">
+      {SERVICES.map((s) => (
+        <article class="card"><h3>{s.title}</h3><p>{s.desc}</p><a href={`/hizmetler/${s.slug}`}>{s.title} detayı →</a></article>
+      ))}
+    </div>
+  </div></section>
+
+  <section style="background:#fff;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0"><div class="wrap">
+    <h2>Makine Parkımız</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Kepçe / Ekskavatör</h3><p>Dar sokak mini kepçeden büyük temel kazısına. Kotunda, komşu yapıya zarar vermeden kazı.</p></div>
+      <div class="card"><h3>Damperli Kamyon</h3><p>Hafriyat toprağı, inşaat atığı ve moloz nakliyesi. Sefer planlı, döküm fişli.</p></div>
+      <div class="card"><h3>Forklift Çatalı</h3><p>Paletli malzeme, moloz çuvalı ve saha içi yükleme. Temiz saha teslimi.</p></div>
+    </div>
+    <p class="muted">İnşaat temel dolgusu, temel çevre düzenleme ve altyapı işlerinde serme + sıkıştırma dahil çalışıyoruz.</p>
+  </div></section>
+
+  <section><div class="wrap">
+    <h2>Nasıl Çalışıyoruz?</h2>
+    <table><tr><th>Adım</th><th>Ne yapıyoruz</th></tr>
+    <tr><td>1. Ara / WhatsApp</td><td>Adres + fotoğraf gönderin, ön fiyat alın.</td></tr>
+    <tr><td>2. Ücretsiz keşif</td><td>Kadıköy-Üsküdar-Maltepe'de aynı gün m³ ve sefer hesabı.</td></tr>
+    <tr><td>3. Kazı / Yükleme</td><td>Kepçe-ekskavatör ile güvenli kazı, toz ve çamur kontrolü.</td></tr>
+    <tr><td>4. Nakliye / Bertaraf</td><td>Lisanslı sahaya nakliye, fiş teslimi, temiz teslim.</td></tr></table>
+  </div></section>
+
+  <section id="bolgeler" style="background:#fff;border-top:1px solid #e2e8f0"><div class="wrap">
+    <h2>Hizmet Bölgelerimiz</h2>
+    <p>GNG Hafriyat hizmet bölgesi: Üsküdar, Kadıköy, Maltepe merkezli tüm Anadolu Yakası. Detaylı sayfalar:</p>
+    <div class="grid g3">
+      <div class="card"><h3><a href="/kadikoy-hafriyat">Kadıköy Hafriyat</a></h3><p>Fikirtepe, Kozyatağı, Suadiye, Erenköy, Göztepe, Bostancı, Acıbadem dahil.</p></div>
+      <div class="card"><h3><a href="/uskudar-hafriyat">Üsküdar Hafriyat</a></h3><p>Merkez üs. Dar sokaklara mini kepçe, Boğaz hattında temiz çalışma.</p></div>
+      <div class="card"><h3><a href="/maltepe-hafriyat">Maltepe Hafriyat</a></h3><p>Şantiye, yol ve altyapı işlerinde filo优势 ile seri sefer.</p></div>
+    </div>
+    <p class="muted">{AREAS.map((a) => a.name).join(" · ")}</p>
+  </div></section>
+
+  <section id="sss"><div class="wrap faq">
+    <h2>Sık Sorulan Sorular</h2>
+    {FAQS.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+  </div></section>
+
+  <section id="teklif" style="background:#0f172a;color:#fff"><div class="wrap">
+    <h2 style="color:#fff">Ücretsiz Keşif İçin Arayın</h2>
+    <p style="color:#cbd5e1">Fotoğraf gönderin, aynı gün net fiyat alın. Küçük veya büyük tüm hafriyat işlerinizde güvenilir hizmet.</p>
+    <div class="hero-cta">
+      <a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a>
+      <a class="btn big" style="background:#22c55e;color:#fff" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn big" style="background:#fff" href="/iletisim">İletişim Sayfası</a>
+    </div>
+    <p class="small" style="color:#94a3b8">İş Makinesi Kiralama Hizmeti · GNG Hafriyat · Üsküdar/İstanbul · Pazar-Cumartesi 24 saat açık</p>
+  </div></section>
+</Base>
