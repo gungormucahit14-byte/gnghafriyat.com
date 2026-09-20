@@ -1,5 +1,6 @@
 ---
 import { SITE } from "../const/site";
+import css from "../../public/styles.css?raw";
 
 interface Props {
   title: string;
@@ -35,8 +36,7 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, SITE.url).toString
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="/styles.css" />
+  <style set:html={css} />
   <!-- Search Console + GA4: doğrulama kodunu buraya ekleyin
   <meta name="google-site-verification" content="BURAYA" />
   -->
