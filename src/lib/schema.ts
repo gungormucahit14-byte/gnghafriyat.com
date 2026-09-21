@@ -34,7 +34,8 @@ export function localBusinessJson() {
     ],
     makesOffer: [
       "Temel Kazısı","Kanal Kazısı","Arazi Tesviyesi","Moloz Taşıma",
-      "Yıkım Molozu Kaldırma","Hafriyat Nakliyesi","İnşaat Temel Dolgusu",
+      "Yıkım Molozu Kaldırma","Hafriyat Nakliyesi","İnşaat Dolgusu",
+      "İnşaat Çevre Düzenleme","İnşaat Temel Dolgusu",
     ].map((n) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
   };
 }
@@ -73,4 +74,17 @@ export function breadcrumbJson(items: { name: string; url: string }[]) {
       item: it.url,
     })),
   };
+}
+
+export function videoJson(videos: { name: string; desc: string; url: string; thumb: string; seconds: number }[]) {
+  return videos.map((v) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: v.name,
+    description: v.desc,
+    contentUrl: v.url,
+    thumbnailUrl: v.thumb,
+    uploadDate: "2026-09-21",
+    duration: `PT${v.seconds}S`,
+  }));
 }

@@ -10,7 +10,7 @@ interface Props {
   jsonLd?: Record<string, unknown>[];
   noindex?: boolean;
 }
-const { title, description, canonical, ogImage = "/og-gng.jpg", jsonLd = [], noindex = false } = Astro.props;
+const { title, description, canonical, ogImage = "/img/yikim-moloz-kaldirma.jpg", jsonLd = [], noindex = false } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, SITE.url).toString();
 ---
 <!doctype html>
@@ -74,6 +74,8 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, SITE.url).toString
           <li><a href="/hizmetler/kanal-kazisi">Kanal Kazısı</a></li>
           <li><a href="/hizmetler/arazi-tesviyesi">Arazi Tesviyesi</a></li>
           <li><a href="/hizmetler/moloz-tasima">Moloz Taşıma</a></li>
+          <li><a href="/hizmetler/insaat-dolgusu">İnşaat Dolgusu</a></li>
+          <li><a href="/hizmetler/insaat-cevre-duzenleme">Çevre Düzenleme</a></li>
         </ul>
       </div>
       <div>

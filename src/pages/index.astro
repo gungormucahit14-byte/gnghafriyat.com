@@ -1,15 +1,19 @@
 ---
 import Base from "../layouts/Base.astro";
 import { SITE, SERVICES, AREAS, FAQS } from "../const/site";
-import { localBusinessJson, websiteJson, faqJson, breadcrumbJson } from "../lib/schema";
+import { localBusinessJson, websiteJson, faqJson, breadcrumbJson, videoJson } from "../lib/schema";
 
 const title = "İstanbul Hafriyat, Kazı, Yıkım ve Nakliye | Kadıköy Üsküdar Maltepe – GNG Hafriyat";
-const description = "GNG Hafriyat: Kadıköy, Üsküdar, Maltepe ve çevresinde hafriyat, temel kazısı, kanal kazısı, tesviye, moloz taşıma ve yıkım molozu kaldırma. Kepçe, ekskavatör, damperli kamyonla 7/24 aynı gün hizmet. 0537 743 61 20";
+const description = "GNG Hafriyat: Kadıköy, Üsküdar, Maltepe ve çevresinde hafriyat, temel kazısı, kanal kazısı, tesviye, moloz taşıma, inşaat dolgusu ve çevre düzenleme. Kepçe, ekskavatör, damperli kamyonla 7/24 aynı gün hizmet. 0537 743 61 20";
 const jsonLd = [
   localBusinessJson(),
   websiteJson(),
   faqJson(),
   breadcrumbJson([{ name: "Ana Sayfa", url: SITE.url + "/" }]),
+  ...videoJson([
+    { name: "Kepçe ile temel kazısı – GNG Hafriyat", desc: "Ekskavatör ile temel kazısı saha çalışması. Kadıköy Üsküdar Maltepe'de 7/24 hafriyat.", url: SITE.url + "/video/kepce-kazi-tanitim.mp4", thumb: SITE.url + "/img/temel-kazisi-ekskavator.jpg", seconds: 6 },
+    { name: "Hafriyat saha çalışması – GNG Hafriyat", desc: "Kepçe ile arazi tesviyesi ve hafriyat yükleme. Damperli kamyonla nakliye.", url: SITE.url + "/video/hafriyat-saha-calismasi.mp4", thumb: SITE.url + "/img/jcb-bekoloder-arazi.jpg", seconds: 28 },
+  ]),
 ];
 ---
 <Base title={title} description={description} jsonLd={jsonLd}>
@@ -70,6 +74,21 @@ const jsonLd = [
       <div class="card"><h3><a href="/maltepe-hafriyat">Maltepe Hafriyat</a></h3><p>Şantiye, yol ve altyapı işlerinde geniş filo ile seri sefer.</p></div>
     </div>
     <p class="muted">{AREAS.map((a) => a.name).join(" · ")}</p>
+  </div></section>
+
+  <section id="saha"><div class="wrap">
+    <h2>Sahadan Kareler</h2>
+    <p class="muted">Gerçek işlerimizden fotoğraf ve videolar: temel kazısı, yıkım molozu kaldırma, JCB bekoloder ile arazi çalışması.</p>
+    <div class="grid g2">
+      <figure class="shot"><img src="/img/temel-kazisi-ekskavator.jpg" alt="Ekskavatör kovası ile temel kazısı yapılan çukur, Kadıköy hafriyat çalışması" width="1024" height="1820" loading="lazy" /><figcaption>Temel kazısı — ekskavatör ile kotunda kazı</figcaption></figure>
+      <figure class="shot"><img src="/img/yikim-moloz-kaldirma.jpg" alt="Yıkım sonrası moloz yığını önünde 3CX kepçe, Üsküdar moloz kaldırma" width="1280" height="2286" loading="lazy" /><figcaption>Yıkım molozu kaldırma — aynı gün kamyon</figcaption></figure>
+      <figure class="shot"><img src="/img/jcb-bekoloder-arazi.jpg" alt="JCB bekoloder arazi tesviyesi yaparken, Maltepe hafriyat" width="1280" height="2282" loading="lazy" /><figcaption>Arazi tesviyesi — JCB bekoloder</figcaption></figure>
+      <figure class="shot"><img src="/img/jcb-bekoloder-saha.jpg" alt="JCB bekoloder şantiye sahasında, İstanbul hafriyat makine parkı" width="1280" height="2442" loading="lazy" /><figcaption>Makine parkımız — sahaya hazır</figcaption></figure>
+    </div>
+    <div class="grid g2" style="margin-top:14px">
+      <figure class="shot"><video controls preload="none" playsinline width="406" height="720" poster="/img/temel-kazisi-ekskavator.jpg"><source src="/video/kepce-kazi-tanitim.mp4" type="video/mp4" />Tarayıcınız video oynatmıyor.</video><figcaption>Kepçe ile kazı — tanıtım (6 sn)</figcaption></figure>
+      <figure class="shot"><video controls preload="none" playsinline width="406" height="720" poster="/img/jcb-bekoloder-arazi.jpg"><source src="/video/hafriyat-saha-calismasi.mp4" type="video/mp4" />Tarayıcınız video oynatmıyor.</video><figcaption>Saha çalışması (28 sn)</figcaption></figure>
+    </div>
   </div></section>
 
   <section id="sss"><div class="wrap faq">

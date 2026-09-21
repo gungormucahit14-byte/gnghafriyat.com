@@ -67,6 +67,16 @@ export const SERVICES = [
     slug: "hafriyat-nakliyesi",
     desc: "Hafriyat toprağı yükleme ve nakliyesi, inşaat atığı bertarafı. Forklift çatalı ve damperli kamyon filosu.",
   },
+  {
+    title: "İnşaat Dolgusu",
+    slug: "insaat-dolgusu",
+    desc: "Temel, saha ve yol dolgusu. Temiz dolgu malzemesi serme, katmanlı sıkıştırma ve kot teslimi.",
+  },
+  {
+    title: "İnşaat Çevre Düzenleme",
+    slug: "insaat-cevre-duzenleme",
+    desc: "Şantiye bitiminde temel çevresi düzenleme, tesviye, moloz temizliği ve teslimata hazır saha.",
+  },
 ];
 
 export const FAQS = [

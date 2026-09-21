@@ -10,6 +10,8 @@ export function getStaticPaths() {
     { params: { slug: "moloz-tasima" } },
     { params: { slug: "yikim-molozu-kaldirma" } },
     { params: { slug: "hafriyat-nakliyesi" } },
+    { params: { slug: "insaat-dolgusu" } },
+    { params: { slug: "insaat-cevre-duzenleme" } },
   ];
 }
 const data = {
@@ -19,6 +21,8 @@ const data = {
   "moloz-tasima": ["Moloz Taşıma ve İnşaat Atığı Nakliyesi – GNG", "Yıkım molozu, inşaat atığı, hafriyat atığı yükleme ve lisanslı sahaya nakliye. Fiş teslimli, aynı gün kamyon. 0537 743 61 20"],
   "yikim-molozu-kaldirma": ["Yıkım Molozu Kaldırma ve Bertaraf – GNG Hafriyat", "Bina ve daire yıkım sonrası moloz kaldırma, bertaraf ve temiz teslim. Kadıköy Üsküdar Maltepe'de hızlı ekip. 0537 743 61 20"],
   "hafriyat-nakliyesi": ["Hafriyat Toprağı Nakliyesi – GNG Hafriyat", "Hafriyat toprağı yükleme ve damperli kamyonla nakliye, döküm fişli bertaraf. Seri sefer planı. 0537 743 61 20"],
+  "insaat-dolgusu": ["İnşaat Dolgusu ve Sıkıştırma – GNG Hafriyat", "Temel, saha ve yol dolgusu. Temiz dolgu malzemesi serme, katmanlı sıkıştırma ve kot teslimi. Kadıköy Üsküdar Maltepe'de aynı gün ekip. 0537 743 61 20"],
+  "insaat-cevre-duzenleme": ["İnşaat Çevre Düzenleme – GNG Hafriyat", "Şantiye bitiminde temel çevresi düzenleme, tesviye, moloz temizliği ve teslimata hazır saha. Güvenli, temiz, zamanında. 0537 743 61 20"],
 };
 const slug = Astro.params.slug ?? "temel-kazisi";
 const [title, description] = data[slug] ?? Object.values(data)[0];
