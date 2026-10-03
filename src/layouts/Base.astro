@@ -41,12 +41,20 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, SITE.url).toString
   <meta name="google-site-verification" content="BURAYA" />
   -->
   {jsonLd.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  <!-- Google tag (gtag.js) - GA4 G-MCT4DBPG23 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCT4DBPG23"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MCT4DBPG23');
+  </script>
 </head>
 <body>
   <a class="skip" href="#icerik">İçeriğe atla</a>
   <header class="topbar">
     <div class="wrap topbar-in">
-      <a class="brand" href="/" aria-label="GNG Hafriyat ana sayfa"><span class="brand-badge">GNG</span> Hafriyat</a>
+      <a class="brand" href="/" aria-label="GNG Hafriyat ana sayfa"><svg class="brand-icon" width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="23" width="14" height="5" rx="2" fill="#f59e0b"/><circle cx="6" cy="25.5" r="1" fill="#0f172a"/><circle cx="12" cy="25.5" r="1" fill="#0f172a"/><rect x="7" y="16" width="7" height="7" rx="1" fill="#0f172a"/><rect x="8.5" y="13" width="4" height="4" rx="1" fill="#f59e0b"/><path d="M13 17 L22 10 L27 14" stroke="#0f172a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 14 L29 20 L25 22" stroke="#f59e0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-badge">GNG</span> Hafriyat</a>
       <nav aria-label="Ana menü">
         <a href="/#hizmetler">Hizmetler</a>
         <a href="/#bolgeler">Bölgeler</a>
