@@ -77,6 +77,11 @@ export const SERVICES = [
     slug: "insaat-cevre-duzenleme",
     desc: "Şantiye bitiminde temel çevresi düzenleme, tesviye, moloz temizliği ve teslimata hazır saha.",
   },
+  {
+    title: "Kiralık Kepçe",
+    slug: "kiralik-kepce",
+    desc: "Operatörlü saatlik ve günlük kiralık kepçe, JCB bekoloder ve mini kepçe. Kadıköy, Üsküdar, Maltepe'de aynı gün sahada.",
+  },
 ];
 
 export const FAQS = [

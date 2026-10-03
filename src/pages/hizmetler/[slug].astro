@@ -12,6 +12,7 @@ export function getStaticPaths() {
     { params: { slug: "hafriyat-nakliyesi" } },
     { params: { slug: "insaat-dolgusu" } },
     { params: { slug: "insaat-cevre-duzenleme" } },
+    { params: { slug: "kiralik-kepce" } },
   ];
 }
 const data = {
@@ -23,6 +24,7 @@ const data = {
   "hafriyat-nakliyesi": ["Hafriyat Toprağı Nakliyesi – GNG Hafriyat", "Hafriyat toprağı yükleme ve damperli kamyonla nakliye, döküm fişli bertaraf. Seri sefer planı. 0537 743 61 20"],
   "insaat-dolgusu": ["İnşaat Dolgusu ve Sıkıştırma – GNG Hafriyat", "Temel, saha ve yol dolgusu. Temiz dolgu malzemesi serme, katmanlı sıkıştırma ve kot teslimi. Kadıköy Üsküdar Maltepe'de aynı gün ekip. 0537 743 61 20"],
   "insaat-cevre-duzenleme": ["İnşaat Çevre Düzenleme – GNG Hafriyat", "Şantiye bitiminde temel çevresi düzenleme, tesviye, moloz temizliği ve teslimata hazır saha. Güvenli, temiz, zamanında. 0537 743 61 20"],
+  "kiralik-kepce": ["Kiralık Kepçe | Operatörlü Kepçe Kiralama – GNG Hafriyat", "Saatlik ve günlük operatörlü kiralık kepçe, JCB bekoloder ve mini kepçe kiralama. Kadıköy Üsküdar Maltepe'de aynı gün sahada. 0537 743 61 20"],
 };
 const slug = Astro.params.slug ?? "temel-kazisi";
 const [title, description] = data[slug] ?? Object.values(data)[0];

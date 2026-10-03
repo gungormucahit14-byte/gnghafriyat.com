@@ -35,7 +35,8 @@ export function localBusinessJson() {
     makesOffer: [
       "Temel Kazısı","Kanal Kazısı","Arazi Tesviyesi","Moloz Taşıma",
       "Yıkım Molozu Kaldırma","Hafriyat Nakliyesi","İnşaat Dolgusu",
-      "İnşaat Çevre Düzenleme","İnşaat Temel Dolgusu",
+      "İnşaat Çevre Düzenleme","Kiralık Kepçe","Operatörlü Kepçe Kiralama",
+      "İnşaat Temel Dolgusu",
     ].map((n) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
   };
 }

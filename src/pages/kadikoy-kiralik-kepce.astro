@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Kadıköy Kiralık Kepçe | Operatörlü Kepçe Kiralama – GNG Hafriyat";
+const description = "Kadıköy'de saatlik ve günlük kiralık kepçe. Operatörlü JCB bekoloder ve mini kepçe kiralama, aynı gün sahada. Fikirtepe, Kozyatağı, Bostancı ve tüm Kadıköy. 0537 743 61 20";
+const faqs = [
+  { q: "Kadıköy'de kepçe kiralama fiyatı ne kadar?", a: "Fiyat; saatlik veya günlük kiralamaya, makine tipine (mini kepçe, JCB bekoloder) ve nakliye mesafesine göre belirlenir. Telefon veya WhatsApp'tan işinizi anlatın, dakikalar içinde net fiyat verelim: 0537 743 61 20." },
+  { q: "Kepçe operatörlü mü geliyor?", a: "Evet. Tüm kiralamalar deneyimli operatör ile yapılır. Operatörsüz makine kiralaması yapmıyoruz." },
+  { q: "Aynı gün kepçe gelir mi?", a: "Evet. Üsküdar merkezli olduğumuz için Kadıköy'ün her mahallesine çoğu gün aynı gün kepçe yönlendiriyoruz. 7/24 açığız." },
+  { q: "Dar sokağa kepçe girer mi?", a: "Evet. Fikirtepe, Osmanağa gibi dar sokaklara mini kepçe gönderiyoruz. Keşifte sokak ve saha durumuna bakıp uygun makineyi seçiyoruz." },
+  { q: "Minimum kiralama süresi var mı?", a: "Şehir içi işlerde genellikle yarım gün (4 saat) alt limit uyguluyoruz. Tek saatlik küçük işler için telefonda konuşalım, çoğu zaman çözüm buluyoruz." },
+];
+const jsonLd = [
+  localBusinessJson(),
+  { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
+  breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Kadıköy Kiralık Kepçe",url:SITE.url+"/kadikoy-kiralik-kepce"}]),
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Kadıköy Kiralık Kepçe</p>
+<h1>Kadıköy Kiralık Kepçe — Operatörlü Kepçe Kiralama</h1>
+<p>Kadıköy'de kiralık kepçe mi arıyorsunuz? GNG Hafriyat; Fikirtepe, Osmanağa, Kozyatağı, Suadiye, Erenköy, Göztepe, Bostancı, Acıbadem, Hasanpaşa ve tüm Kadıköy mahallelerine <strong>operatörlü kepçe kiralama</strong> yapar. JCB bekoloder ve dar sokaklara uygun mini kepçe ile temel kazısı, kanal kazısı, moloz yükleme, tesviye ve yıkım işlerinde <strong>saatlik veya günlük</strong> çalışırız. Üsküdar merkezli olduğumuz için çoğu işe <strong>aynı gün</strong> kepçe çıkarırız.</p>
+<h2>Neden GNG'den kirala?</h2>
+<ul><li>Operatör dahil fiyat, sürpriz yok</li><li>Dar sokaklara mini kepçe, büyük işe JCB</li><li>Nakliye (treyler) bizden, bekleme yok</li><li>7/24 telefon: {SITE.phoneDisplay}</li></ul>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Fiyat Al</a></div>
+<h2>Kiralık kepçe fiyatını ne belirler?</h2>
+<p>Saatlik/günlük süre, makine tipi, treyler nakliyesi ve işin süresi. Fotoğraf veya konum gönderin, net fiyatı telefonda verelim. Uzun süreli (haftalık/aylık) kiralamalarda özel fiyat yapıyoruz.</p>
+<p class="muted">İlgili: <a href="/hizmetler/kiralik-kepce">Kiralık Kepçe hizmeti</a> · <a href="/kadikoy-hafriyat">Kadıköy Hafriyat</a> · <a href="/uskudar-hafriyat">Üsküdar Hafriyat</a> · <a href="/maltepe-hafriyat">Maltepe Hafriyat</a></p>
+<h2>Kadıköy Kepçe Kiralama SSS</h2><div class="faq">{faqs.map((f)=>(<details><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+</div>
+</Base>
