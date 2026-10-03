@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, breadcrumbJson } from "../lib/schema";
+const title = "İsteğiniz Alındı – GNG Hafriyat";
+const description = "Fiyat teklifi isteğiniz alındı. GNG Hafriyat en kısa sürede sizi arayacak. Acil işler için 0537 743 61 20";
+const jsonLd = [localBusinessJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Teşekkürler",url:SITE.url+"/tesekkurler"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd} noindex={true}>
+<div class="wrap" style="padding:44px 18px;text-align:center">
+<p class="breadcrumb" style="text-align:left"><a href="/">Ana Sayfa</a> / Teşekkürler</p>
+<h1>İsteğiniz Alındı ✓</h1>
+<p>Teşekkürler! Ekibimiz en kısa sürede sizi arayacak.<br/>Acil işiniz varsa beklemeyin:</p>
+<div class="hero-cta" style="justify-content:center">
+<a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a>
+<a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp</a>
+</div>
+<p class="muted"><a href="/">Ana sayfaya dön →</a></p>
+</div>
+</Base>

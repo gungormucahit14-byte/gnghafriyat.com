@@ -24,6 +24,7 @@ pnpm-debug.log*
 # token/secret - asla commitleme
 *token*
 *Token*
+PAT*
 
 # macOS-specific files
 .DS_Store
