@@ -1,0 +1,29 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Üsküdar Kepçe Kiralama | Dar Sokak ve Yokuş Uzmanı – GNG";
+const description = "Üsküdar'da kiralık kepçe: mini kepçe ile dar sokak, yokuş ve tarihi dokuda güvenli çalışma. Merkez üsten aynı gün sahada. 0537 743 61 20";
+const faqs = [
+  { q: "Üsküdar'da dar sokağa kepçe girer mi?", a: "Evet. Mini kepçe 1 metrelik geçişlerden geçer. Keşifte sokak genişliği ve dönüş alanına bakıp uygun makineyi seçiyoruz." },
+  { q: "Yokuşlu arazide çalışma güvenli mi?", a: "Evet. Paletli makineler eğimde stabil çalışır, tekerlekli yerine paletli öneririz. Stabilizatör ayakları standart kullanılır." },
+  { q: "Tarihi doku bölgesinde izin gerekir mi?", a: "Kazı ve yıkım işlerinde belediye izni gerekebilir; hangi evrakın lazım olduğunu keşifte söyler, yönlendiririz." },
+  { q: "Fiyat nasıl belirlenir?", a: "Saatlik/günlük tarife + treyler mesafesi. Merkez üssümüz Üsküdar'da olduğu için nakliye maliyeti minimumdur." },
+];
+const jsonLd = [localBusinessJson(), { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }, breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Üsküdar Kepçe Kiralama",url:SITE.url+"/uskudar-kepce-kiralama"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Üsküdar Kepçe Kiralama</p>
+<h1>Üsküdar Kepçe Kiralama — Dar Sokak ve Yokuş Uzmanı</h1>
+<p>Merkez üssümüz Üsküdar'da; bu yüzden <strong>Üsküdar kepçe kiralama</strong> işlerinde hem en hızlı hem en uygun maliyetli biziz. Üsküdar'ın üç zorluğu vardır: <strong>dar sokaklar</strong> (Kuzguncuk, Zeynep Kamil), <strong>yokuşlu arazi</strong> (Kısıklı, Kandilli, Beylerbeyi) ve <strong>tarihi doku</strong> (Salacak, Aziz Mahmut Hüdayi çevresi). Üçüne de uygun makine ve prosedür bizde hazır.</p>
+<h2>Hangi makine nereye?</h2>
+<ul><li><strong>Mini kepçe:</strong> 1 metrelik kapılar, apartman bahçeleri, dar merdivenli sokaklar.</li><li><strong>JCB bekoloder:</strong> site ve yol işleri, moloz yükleme, kanal kazısı.</li><li><strong>Paletli kepçe:</strong> yokuşlu arsa, derin kazı, kaya zemini.</li></ul>
+<h2>Üsküdar'da çalışma disiplinimiz</h2>
+<ul><li>Sabah sessiz saatine uygun başlama, komşu bilgilendirmesi</li><li>Toz perdesi ve çamur lastiği temizliği (tarihi dokuda şart)</li><li>Belediye izni gereken işlerde evrak yönlendirmesi</li><li>Döküm fişli, lisanslı sahaya nakliye</li></ul>
+<h2>Mahalleler</h2>
+<p>Kısıklı · Kandilli · Beylerbeyi · Kuzguncuk · Altunizade · Koşuyolu · Acıbadem · Çengelköy — tamamına merkezden aynı gün servis.</p>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Fiyat Al</a></div>
+<h2>Üsküdar SSS</h2><div class="faq">{faqs.map((f)=>(<details><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+<p class="muted"><a href="/uskudar-hafriyat">Üsküdar Hafriyat</a> · <a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a> · <a href="/fiyatlar">Fiyatlar</a></p>
+</div>
+</Base>

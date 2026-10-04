@@ -1,0 +1,29 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Günlük Kepçe Kiralama | Şantiyeye Günlük Makine – GNG Hafriyat";
+const description = "Günlük kepçe kiralama: JCB ve mini kepçe ile operatör dahil günlük tarife. Kadıköy Üsküdar Maltepe'de aynı gün sahada. 0537 743 61 20";
+const faqs = [
+  { q: "Günlük kiralama kaç saat sürer?", a: "Standart gün 8 saattir (molalar dahil). Mesai dışı ihtiyaçta saatlik ekleme yapılır, önceden konuşulur." },
+  { q: "Günlük mü saatlik mi avantajlı?", a: "4 saatten uzun işlerde günlük tarife her zaman ucuzdur. 2-3 saatlik işlerde saatlik alın." },
+  { q: "Haftalık şantiye işlerinde ne olur?", a: "Haftalık pakette günlük birim fiyat düşer, makine sahada sabit kalır, treyler maliyeti bir kez ödenir." },
+  { q: "Yakıt ve operatör dahil mi?", a: "Evet. Teklifte yakıt, operatör, sigorta ve treyler ayrı kalem yazılır; gün sonunda sürpriz çıkmaz." },
+];
+const jsonLd = [localBusinessJson(), { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }, breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Günlük Kepçe Kiralama",url:SITE.url+"/gunluk-kepce-kiralama"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Günlük Kepçe Kiralama</p>
+<h1>Günlük Kepçe Kiralama</h1>
+<p>Bir günden uzun işin varsa saatlik tarife para yakar. <strong>Günlük kepçe kiralama</strong> ile makine + operatör sabah sahada olur, akşam iş bitmeden ayrılmaz. Kadıköy, Üsküdar ve Maltepe'de aynı gün başlayan günlük kiralamalarda treyler sabah 08:00 öncesi sahadadır.</p>
+<h2>Günlük tarifede neler var?</h2>
+<ul><li>8 saat çalışma (molalar dahil), operatör dahil</li><li>Yakıt dolu teslim, gün sonu raporu</li><li>Treyler gidiş-dönüş tek seferde planlanır</li><li>Kırıcı uç gerekiyorsa günlük eklenir</li></ul>
+<h2>Hangi işler günlüğe uygun?</h2>
+<ul><li>Temel kazısı ve hafriyat yükleme (kepçe + kamyon kombini)</li><li>Site ve yol tesviyesi, otopark düzenlemesi</li><li>Bina yıkımı ve moloz çıkarma</li><li>Kanal ve drenaj hatları</li></ul>
+<h2>Saatlik mi günlük mü?</h2>
+<p>Kural: iş 4 saati geçecekse günlüğe geç. 2 kamyon molozdan fazlası, 50 m² üzeri tesviye ve her türlü temel işi günlük ister. Kararsızsan fotoğraf gönder, süreyi biz hesaplayalım.</p>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Fiyat Al</a></div>
+<h2>SSS</h2><div class="faq">{faqs.map((f)=>(<details><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+<p class="muted"><a href="/hizmetler/kiralik-kepce">Kiralık Kepçe</a> · <a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a> · <a href="/fiyatlar">Fiyatlar</a></p>
+</div>
+</Base>

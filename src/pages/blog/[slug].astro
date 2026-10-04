@@ -7,6 +7,7 @@ export function getStaticPaths() {
     { params: { slug: "kepce-kiralama-rehberi" } },
     { params: { slug: "hafriyat-maliyeti-nasil-hesaplanir" } },
     { params: { slug: "jcb-3cx-nedir" } },
+    { params: { slug: "moloz-tasima-fiyatlari-2026" } },
   ];
 }
 const posts: Record<string, { t: string; d: string; h1: string; body: string }> = {
@@ -27,6 +28,12 @@ const posts: Record<string, { t: string; d: string; h1: string; body: string }> 
     d: "JCB 3CX beko loder: ön kepçe + arka kazıcı bir arada. Teknik özellikleri, hangi işlere uygun olduğu ve kiralama bilgisi.",
     h1: "JCB 3CX Nedir?",
     body: `<p><strong>JCB 3CX</strong>, önde yükleyici kovası arkada kazıcı kolu olan beko loderdir; tek makineyle hem kazar hem yükler. Bu yüzden şehir içi hafriyatın en çok kiralanan makinesidir — Kadıköy'deki işlerin büyük bölümü 3CX ile biter.</p><h2>Ne iş yapar?</h2><ul><li>Temel ve kanal kazısı, kotlu tesviye</li><li>Kamyona moloz ve toprak yükleme</li><li>Kırıcı uçla beton-asfalt kırma</li><li>Dar şantiyede tek makineyle komple iş (treyler ile gelir, kurulum istemez)</li></ul><h2>Teknik olarak neden pratik?</h2><p>Lastikli olduğu için paletli gibi treyler rampası ve zemin koruması derdi çıkarmaz; asfalt üstünde yürür. Ön kova ile serme-düzeltme, arka kol ile derin kazı yapılır. Stabilizatör ayakları dar alanda güvenli çalışma sağlar.</p><h2>Ne zaman yetmez?</h2><ul><li>Derin bodrum temelleri ve kaya: paletli ekskavatör gerekir.</li><li>1 metrelik kapı geçişleri ve bina içleri: mini kepçe gerekir.</li><li>Çok büyük hacim: kova başına verim için büyük paletli + çok kamyon.</li></ul><p>Keşifte bunu biz söyleriz; uymayan makineyi göndermeyiz. Kiralama için: <a href="/hizmetler/kiralik-kepce">kiralık kepçe sayfamız</a> ve <a href="/kadikoy-kiralik-kepce">Kadıköy kiralık kepçe</a>.</p>`,
+  },
+  "moloz-tasima-fiyatlari-2026": {
+    t: "Moloz Taşıma Fiyatları 2026: Sefer, Döküm ve Çuval Hesabı – GNG",
+    d: "Moloz taşıma fiyatı nasıl oluşur? Sefer ücreti, döküm sahası fişi, çuvallı taşıma ve kat farkı. Kadıköy'de aynı gün moloz kamyonu.",
+    h1: "Moloz Taşıma Fiyatları 2026",
+    body: `<p>Tadilat bitmiş, moloz kapıda duruyor. Fiyatı üç şey belirler: <strong>miktar, kat ve döküm</strong>.</p><h2>Sefer mi çuval mı?</h2><ul><li><strong>Dökme moloz (kamyonla):</strong> kepçe yükler, damperli götürür; büyük işte en ucuz yöntemdir.</li><li><strong>Çuvallı taşıma:</strong> bodrum ve üst katlarda asansörsüz iniş; işçilik ağırlıklıdır, m³ başına pahalıdır ama tek çözümdür.</li></ul><h2>Döküm fişi neden önemli?</h2><p>Moloz lisanslı sahaya dökülür, fişi size teslim edilir. Fişsiz "ucuza götürürüm" diyen, kaçak döker; cezası size kesilir. Fişi her işte isteyin.</p><h2>Kat farkı gerçeği</h2><p>Zemin kat ile 4. kat aynı fiyat olamaz; taşıma işçiliği katla artar. Telefonda katı ve asansör durumunu söyleyin, net fiyat alın. Aynı gün kamyon için: <a href="/hizmetler/moloz-tasima">moloz taşıma sayfamız</a>.</p>`,
   },
 };
 const slug = Astro.params.slug ?? "kepce-kiralama-rehberi";
