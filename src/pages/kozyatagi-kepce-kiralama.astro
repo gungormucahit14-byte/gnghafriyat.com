@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Kozyatağı Kepçe Kiralama ve Hafriyat – GNG Hafriyat";
+const description = "Kozyatağı'nda kiralık kepçe, site içi moloz taşıma ve tesviye. Plaza ve site kurallarına uygun sessiz saat planı. 0537 743 61 20";
+const jsonLd = [localBusinessJson(), faqJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Kozyatağı Kepçe Kiralama",url:SITE.url+"/kozyatagi-kepce-kiralama"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Kozyatağı Kepçe Kiralama</p>
+<h1>Kozyatağı Kepçe Kiralama ve Hafriyat</h1>
+<p>Kozyatağı; plaza, site ve rezidans yoğunluğu demek. Burada iş yapmak teknik değil <strong>prosedür</strong> işidir: site yönetiminden izin, sessiz saat, otopark girişi ve asansör koruması. GNG Hafriyat, Kozyatağı site yönetimleriyle çalışmaya alışkındır — gerekli belgeleri (sigorta, operatör belgesi) önceden gönderir, belirlenen saatte girer çıkar.</p>
+<ul><li>Daire ve ofis tadilatı molozu, çuvallı taşıma</li><li>Otopark ve peyzaj alanı tesviyesi</li><li>Bodrum kat moloz çıkarma</li></ul>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Fiyat Al</a></div>
+<p class="muted"><a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a> · <a href="/fiyatlar">Fiyatlar</a></p>
+</div>
+</Base>

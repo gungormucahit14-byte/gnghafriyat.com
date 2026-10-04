@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Acıbadem Kepçe Kiralama ve Hafriyat – GNG Hafriyat";
+const description = "Acıbadem'de hastane ve konut çevresinde kepçe kiralama, moloz taşıma. Hassas bölgede sessiz, tozsuz ve belgeli çalışma. 0537 743 61 20";
+const jsonLd = [localBusinessJson(), faqJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Acıbadem Kepçe Kiralama",url:SITE.url+"/acibadem-kepce-kiralama"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Acıbadem Kepçe Kiralama</p>
+<h1>Acıbadem Kepçe Kiralama ve Hafriyat</h1>
+<p>Acıbadem'in bir yüzü hastane, bir yüzü konut. Her ikisinde de kural aynı: <strong>sessiz, tozsuz, belgeli</strong>. Okul ve hastane çevresinde işaretçi ve çevre bandı standarttır; operatör ve sigorta belgelerini site yönetimine önceden iletiriz. Apartman tadilat molozundan villa bahçe işlerine kadar mini ve JCB sınıfı makinelerle çalışırız.</p>
+<ul><li>Apartman ve villa tadilat molozu</li><li>Bahçe tesviyesi ve drenaj</li><li>Küçük ölçekli temel ve kanal kazısı</li></ul>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Fiyat Al</a></div>
+<p class="muted"><a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a> · <a href="/uskudar-hafriyat">Üsküdar Hafriyat</a> · <a href="/fiyatlar">Fiyatlar</a></p>
+</div>
+</Base>

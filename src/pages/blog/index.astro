@@ -1,0 +1,19 @@
+---
+import Base from "../../layouts/Base.astro";
+import { SITE } from "../../const/site";
+import { localBusinessJson, breadcrumbJson } from "../../lib/schema";
+const title = "Blog | Kepçe Kiralama ve Hafriyat Rehberleri – GNG Hafriyat";
+const description = "Kepçe kiralama rehberi, hafriyat maliyeti hesabı ve JCB 3CX bilgileri. Kadıköy Üsküdar Maltepe'den pratik saha bilgileri.";
+const posts = [
+  { slug: "kepce-kiralama-rehberi", t: "Kepçe Kiralama Rehberi", d: "Tonaj seçimi, fiyat mantığı ve Kadıköy'de dikkat edilecek 3 soru." },
+  { slug: "hafriyat-maliyeti-nasil-hesaplanir", t: "Hafriyat Maliyeti Nasıl Hesaplanır?", d: "m³ + sefer formülü, örnek hesap ve maliyeti düşürmenin yolları." },
+  { slug: "jcb-3cx-nedir", t: "JCB 3CX Nedir?", d: "Özellikleri, hangi işe uyar, ne zaman yetmez." },
+];
+const jsonLd = [localBusinessJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Blog",url:SITE.url+"/blog"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Blog</p>
+<h1>Hafriyat ve Kepçe Rehberleri</h1>
+<div class="grid g3">{posts.map((p)=>(<article class="card"><h3><a href={`/blog/${p.slug}`}>{p.t}</a></h3><p>{p.d}</p></article>))}</div>
+</div>
+</Base>

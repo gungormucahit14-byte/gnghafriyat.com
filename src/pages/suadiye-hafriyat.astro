@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Suadiye Hafriyat, Kepçe ve Moloz Taşıma – GNG Hafriyat";
+const description = "Suadiye'de villa bahçe kazısı, havuz çukuru, moloz taşıma ve tesviye. Sahil hattında temiz ve sessiz çalışma. 0537 743 61 20";
+const jsonLd = [localBusinessJson(), faqJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Suadiye Hafriyat",url:SITE.url+"/suadiye-hafriyat"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Suadiye Hafriyat</p>
+<h1>Suadiye Hafriyat, Kepçe ve Bahçe İşleri</h1>
+<p>Suadiye'de işler genelde villadır: <strong>havuz çukuru, bahçe tesviyesi, istinat ve drenaj, ağaç sökümü</strong>. Komşuluk hassasiyeti yüksektir; toz perdesi, sessiz saat ve çamursuz çıkış standart uygularız. Mini kepçe ile bahçeye girer, damperli kamyonla toprağı aynı gün çıkarırız.</p>
+<ul><li>Havuz ve bahçe kazısı, kotlu tesviye</li><li>Villa tadilatı molozu ve inşaat atığı</li><li>Drenaj kanalı ve bahçe duvarı altyapısı</li></ul>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Fiyat Al</a></div>
+<p class="muted"><a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a> · <a href="/fiyatlar">Fiyatlar</a></p>
+</div>
+</Base>

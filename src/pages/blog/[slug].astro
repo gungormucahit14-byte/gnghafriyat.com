@@ -1,0 +1,43 @@
+---
+import Base from "../../layouts/Base.astro";
+import { SITE } from "../../const/site";
+import { localBusinessJson, breadcrumbJson } from "../../lib/schema";
+export function getStaticPaths() {
+  return [
+    { params: { slug: "kepce-kiralama-rehberi" } },
+    { params: { slug: "hafriyat-maliyeti-nasil-hesaplanir" } },
+    { params: { slug: "jcb-3cx-nedir" } },
+  ];
+}
+const posts: Record<string, { t: string; d: string; h1: string; body: string }> = {
+  "kepce-kiralama-rehberi": {
+    t: "Kepçe Kiralama Rehberi: Tonaj, Fiyat ve İlçe Seçimi – GNG",
+    d: "Kepçe kiralarken mini kepçe mi JCB mi? Tonaj seçimi, saatlik/günlük fiyat mantığı ve Kadıköy'de dikkat edilecekler. 0537 743 61 20",
+    h1: "Kepçe Kiralama Rehberi",
+    body: `<p>Doğru kepçeyi seçmek paradan çok <strong>zamandan</strong> kazandırır. Kural basit: işinize en küçük yeterli makineyi tutun.</p><h2>Tonaj seçimi</h2><ul><li><strong>Mini kepçe (1-3 ton):</strong> dar sokak, bahçe, apartman içi, bodrum molozu. Fikirtepe ara sokakları ve site içleri için ideal.</li><li><strong>JCB bekoloder (3CX sınıfı):</strong> hem kazar hem yükler; temel kazısı, kanal, moloz yükleme. Kadıköy işlerinin çoğu bunu ister.</li><li><strong>Paletli büyük (15-22 ton):</strong> derin temel, büyük hacimli hafriyat, kaya.</li></ul><h2>Fiyat mantığı</h2><p>Saatlik (kısa iş), günlük (standart), haftalık (şantiye) tarifeler. Fiyata operatör, yakıt, treyler ve sigortanın dahil olup olmadığını sorun — bizde kalem kalem yazılır.</p><h2>Kadıköy'de 3 kritik soru</h2><p>1) Makine sokağa girecek mi? 2) Çalışma saati siteye uygun mu? 3) Moloz nereye dökülecek (fiş var mı)? Bunları telefonda netleştirin, sürpriz kalmaz.</p>`,
+  },
+  "hafriyat-maliyeti-nasil-hesaplanir": {
+    t: "Hafriyat Maliyeti Nasıl Hesaplanır? m³ + Sefer Formülü – GNG",
+    d: "Hafriyat maliyeti hesabı: m³ hacim, zemin katsayısı, sefer sayısı ve döküm ücreti. Örnek hesapla şeffaf fiyat mantığı.",
+    h1: "Hafriyat Maliyeti Nasıl Hesaplanır?",
+    body: `<p>Hafriyat fiyatı dört kalemden oluşur; formül şeffaftır:</p><p><strong>Maliyet = (m³ × zemin katsayısı) + (sefer × km) + döküm ücreti + makine süresi</strong></p><h2>Örnek</h2><p>10×8×2 m temel çukuru = 160 m³. Kabarma payıyla ~200 m³ gevşek hacim. 15 m³'lük kamyonla ~14 sefer. Sefer başına mesafe ve döküm fişi eklenir, toplam bulunur.</p><h2>Maliyeti düşürmenin 3 yolu</h2><ul><li>Yüklemeyi bekletmeyin: kepçe + kamyon aynı anda sahada olsun.</li><li>Dolgu toprağını sahada değerlendirin, taşınacak hacim azalır.</li><li>Komşu parselle sefer birleştirin (şantiye bölgesinde mümkünse).</li></ul><p>Net rakam için fotoğraf gönderin, ön fiyatı telefonda verelim.</p>`,
+  },
+  "jcb-3cx-nedir": {
+    t: "JCB 3CX Nedir? Özellikleri ve Hangi İşe Uyar – GNG Hafriyat",
+    d: "JCB 3CX beko loder: ön kepçe + arka kazıcı bir arada. Teknik özellikleri, hangi işlere uygun olduğu ve kiralama bilgisi.",
+    h1: "JCB 3CX Nedir?",
+    body: `<p><strong>JCB 3CX</strong>, önde yükleyici kovası arkada kazıcı kolu olan beko loderdir; tek makineyle hem kazar hem yükler. Bu yüzden şehir içi hafriyatın en çok kiralanan makinesidir.</p><h2>Ne iş yapar?</h2><ul><li>Temel ve kanal kazısı, kotlu tesviye</li><li>Kamyona moloz/toprak yükleme</li><li>Kırıcı uçla beton-asfalt kırma</li><li>Dar alanlarda tek makineyle komple iş</li></ul><h2>Ne zaman yetmez?</h2><p>Derin bodrum temellerinde paletli ekskavatör, 1 metrelik kapı geçişlerinde mini kepçe gerekir. Keşifte bunu biz söyleriz; uymayan makineyi göndermeyiz.</p>`,
+  },
+};
+const slug = Astro.params.slug ?? "kepce-kiralama-rehberi";
+const p = posts[slug] ?? Object.values(posts)[0];
+const jsonLd = [localBusinessJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Blog",url:SITE.url+"/blog"},{name:p.h1,url:SITE.url+"/blog/"+slug}])];
+---
+<Base title={p.t} description={p.d} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / <a href="/blog">Blog</a> / {p.h1}</p>
+<h1>{p.h1}</h1>
+<div set:html={p.body} />
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a></div>
+<p class="muted"><a href="/blog">Tüm yazılar</a> · <a href="/fiyatlar">Fiyatlar</a> · <a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a></p>
+</div>
+</Base>

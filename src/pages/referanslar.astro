@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, breadcrumbJson } from "../lib/schema";
+const title = "Referanslar ve Müşteri Yorumları – GNG Hafriyat";
+const description = "GNG Hafriyat müşteri yorumları ve tamamlanan işler. Kadıköy Üsküdar Maltepe'de hafriyat referansları. Siz de yorum bırakın: 0537 743 61 20";
+const jsonLd = [localBusinessJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Referanslar",url:SITE.url+"/referanslar"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Referanslar</p>
+<h1>Referanslarımız</h1>
+<p>Kadıköy, Üsküdar ve Maltepe'de tamamladığımız işlerden örnekler ve müşteri yorumları burada yayınlanır. Google'daki yorumlarımızı görmek için işletme profilimizi ziyaret edin; iş bitiminde sizden de yorum rica ediyoruz — bu sayfa gerçek deneyimlerle büyüyor.</p>
+<h2>Son işler</h2>
+<ul><li><strong>Fikirtepe şantiye moloz seferleri</strong> — günlük düzenli kamyon, döküm fişli teslim</li><li><strong>Bostancı apartman bodrum molozu</strong> — çuvallı taşıma, aynı gün temizlik</li><li><strong>Suadiye villa bahçe tesviyesi</strong> — mini kepçe ile havuz çevresi kotlama</li></ul>
+<p>Bize iş yaptırdınız mı? Google yorumunuzu bekliyoruz — <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a> numarasından yorum linki isteyin.</p>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp</a></div>
+<p class="muted"><a href="/hakkimizda">Hakkımızda</a> · <a href="/fiyatlar">Fiyatlar</a></p>
+</div>
+</Base>
