@@ -1,0 +1,14 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+const title = "KVKK Aydınlatma Metni – GNG Hafriyat";
+const description = "GNG Hafriyat kişisel verilerin korunması aydınlatma metni. Telefon ve WhatsApp ile paylaştığınız bilgilerin kullanımı.";
+---
+<Base title={title} description={description}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / KVKK</p>
+<h1>KVKK Aydınlatma Metni</h1>
+<p>GNG Hafriyat olarak, bizimle telefon veya WhatsApp üzerinden paylaştığınız ad-soyad, telefon numarası, adres ve iş bilgilerinizi; fiyat teklifi hazırlama, keşif planlama ve hizmet sunumu amacıyla işleriz. Bilgileriniz açık rızanız olmadan üçüncü kişilerle paylaşılmaz, pazarlama amacıyla kullanılmaz.</p>
+<p>6698 sayılı KVKK kapsamındaki haklarınız (erişim, düzeltme, silme) için <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a> numarasından bize ulaşabilirsiniz. Talepleriniz en geç 30 gün içinde yanıtlanır.</p>
+<p class="muted">Son güncelleme: Ekim 2026 · <a href="/">Ana Sayfa</a></p>
+</div>
+</Base>

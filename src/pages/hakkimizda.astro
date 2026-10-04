@@ -1,0 +1,22 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, breadcrumbJson } from "../lib/schema";
+const title = "Hakkımızda | GNG Hafriyat – Kadıköy Üsküdar Maltepe";
+const description = "GNG Hafriyat: Üsküdar merkezli, Kadıköy ve Maltepe ağırlıklı hafriyat, kepçe kiralama ve moloz nakliye ekibi. Kepçe, ekskavatör ve damperli kamyon parkı.";
+const jsonLd = [localBusinessJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Hakkımızda",url:SITE.url+"/hakkimizda"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Hakkımızda</p>
+<h1>GNG Hafriyat Kimdir?</h1>
+<p>GNG Hafriyat, merkezi Üsküdar'da olan; Kadıköy, Üsküdar ve Maltepe başta olmak üzere İstanbul Anadolu Yakası'nda <strong>hafriyat, operatörlü kepçe kiralama, moloz taşıma ve inşaat dolgusu</strong> yapan bir saha ekibidir. Büyük holding değiliz — telefonun ucunda işi bilen insan, sahada kendi makinemiz var.</p>
+<h2>Makine parkımız</h2>
+<ul><li>Kepçe / ekskavatör (mini ve JCB sınıfı, dar sokak uyumlu)</li><li>Damperli kamyonlar (sefer planlı hafriyat nakliyesi)</li><li>Forklift çatalı (saha içi yükleme)</li></ul>
+<h2>Çalışma prensiplerimiz</h2>
+<ul><li><strong>7/24 ulaşılabilirlik</strong> — gece ve hafta sonu dahil: {SITE.phoneDisplay}</li><li><strong>Lisanslı döküm</strong> — her nakliyede döküm fişi teslim</li><li><strong>Kalem kalem fiyat</strong> — operatör, yakıt, nakliye ayrı yazılır</li><li><strong>Temiz teslim</strong> — iş bitiminde saha süpürülmüş bırakılır</li></ul>
+<h2>Hizmet bölgemiz</h2>
+<p>Üsküdar merkez; Kadıköy (Fikirtepe, Kozyatağı, Bostancı, Suadiye dahil 20 mahalle), Maltepe ve Ataşehir. Keşif bu bölgelerde ücretsizdir.</p>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp</a></div>
+<p class="muted"><a href="/fiyatlar">Fiyatlar</a> · <a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a> · <a href="/iletisim">İletişim</a></p>
+</div>
+</Base>

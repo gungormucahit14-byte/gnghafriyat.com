@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Fikirtepe Hafriyat ve Kepçe Kiralama | Kentsel Dönüşüm – GNG";
+const description = "Fikirtepe kentsel dönüşüm şantiyelerine hafriyat, temel kazısı, moloz nakliyesi ve kepçe kiralama. Büyük hacimli işlerde filo çözümü. 0537 743 61 20";
+const jsonLd = [localBusinessJson(), faqJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Fikirtepe Hafriyat",url:SITE.url+"/fikirtepe-hafriyat"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Fikirtepe Hafriyat</p>
+<h1>Fikirtepe Hafriyat ve Şantiye Çözümleri</h1>
+<p>Fikirtepe, İstanbul'un en yoğun kentsel dönüşüm bölgesi; dar şantiye alanları, yüksek katlı temeller ve sürekli moloz çıkışı demek. GNG Hafriyat, Fikirtepe şantiyelerine <strong>derin temel kazısı, paletli kepçe ile yükleme, çok kamyonlu moloz seferleri</strong> ve toz-çamur kontrolüyle çalışır. Şantiye şefiyle sefer saatlerini önceden planlar, polen ve trafik saatlerine göre program yaparız.</p>
+<h2>Fikirtepe'de şantiyelere</h2>
+<ul><li>Bodrum kat temel kazısı ve hafriyat toprağı nakliyesi</li><li>Günlük düzenli moloz seferleri, döküm fişli</li><li>Kırıcı uç ile beton ve kaya kırma</li><li>Temel dolgusu ve saha tesviyesi</li></ul>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Teklif Al</a></div>
+<p class="muted"><a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a> · <a href="/kadikoy-hafriyat">Kadıköy Hafriyat</a> · <a href="/fiyatlar">Fiyatlar</a></p>
+</div>
+</Base>

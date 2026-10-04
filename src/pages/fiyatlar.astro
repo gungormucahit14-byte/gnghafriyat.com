@@ -1,0 +1,30 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Kepçe Kiralama ve Hafriyat Fiyatları 2026 | Kadıköy – GNG Hafriyat";
+const description = "Kadıköy Üsküdar Maltepe'de kepçe kiralama ve hafriyat fiyatları nasıl hesaplanır? Saatlik/günlük kiralama, m³ hesabı, döküm ücreti. Net fiyat için 0537 743 61 20";
+const faqs = [
+  { q: "Saatlik kepçe kiralama ne kadar?", a: "Makine tipine ve süreye göre değişir; mini kepçe ile JCB bekoloder farklı fiyatlanır. Telefonda işi anlatın, dakikalar içinde net fiyat verelim." },
+  { q: "Hafriyat m³ fiyatı nasıl hesaplanır?", a: "Hacim (m³) × zemin katsayısı + nakliye (sefer × mesafe) + döküm sahası ücreti. Keşifte net m³ çıkarılır, telefonda ön fiyat verilir." },
+  { q: "Fiyata neler dahil?", a: "Operatör, yakıt, treyler nakliyesi ve sigorta teklifte ayrı ayrı yazılır. Döküm sahası fiş ücreti ayrıca belirtilir; gizli ücret yoktur." },
+  { q: "Uzun süreli işlerde indirim var mı?", a: "Evet. Günlük ve haftalık kiralamalarda saatlik tarifeye göre ciddi avantaj sağlanır. Şantiye bazlı anlaşmalarda özel fiyat çıkarılır." },
+];
+const jsonLd = [localBusinessJson(), { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }, breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Fiyatlar",url:SITE.url+"/fiyatlar"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Fiyatlar</p>
+<h1>Kepçe Kiralama ve Hafriyat Fiyatları</h1>
+<p>İnternette gördüğünüz sabit fiyatların çoğu gerçeği yansıtmaz; her işin zemini, mesafesi ve süresi farklıdır. Bizde sistem şeffaftır — fiyatın nasıl oluştuğunu anlatır, net rakamı telefonda veririz:</p>
+<table><tr><th>Hizmet</th><th>Fiyat tipi</th><th>Neyi etkiler</th></tr>
+<tr><td>Kiralık kepçe (mini / JCB)</td><td>Saatlik · Günlük · Haftalık</td><td>Makine tonajı, süre, treyler mesafesi</td></tr>
+<tr><td>Temel kazısı</td><td>m³ + sefer</td><td>Hacim, zemin (kaya/toprak), derinlik</td></tr>
+<tr><td>Moloz taşıma</td><td>Sefer + döküm</td><td>Kamyon sayısı, döküm sahası ücreti</td></tr>
+<tr><td>Kanal kazısı / tesviye</td><td>Metre / m²</td><td>Hat uzunluğu, kot hassasiyeti</td></tr>
+<tr><td>İnşaat dolgusu</td><td>m³ + sıkıştırma</td><td>Malzeme, katman sayısı</td></tr></table>
+<p><strong>Kuralımız:</strong> operatör, yakıt, nakliye ve sigorta kalem kalem yazılır. Döküm fişi teslim edilir. Telefonda ön fiyat, keşifte net fiyat — ikisi de ücretsiz.</p>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Fiyat Al</a></div>
+<h2>Fiyat SSS</h2><div class="faq">{faqs.map((f)=>(<details><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+<p class="muted"><a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a> · <a href="/hizmetler/moloz-tasima">Moloz Taşıma</a> · <a href="/iletisim">İletişim</a></p>
+</div>
+</Base>

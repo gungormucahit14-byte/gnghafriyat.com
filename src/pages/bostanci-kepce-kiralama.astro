@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../const/site";
+import { localBusinessJson, faqJson, breadcrumbJson } from "../lib/schema";
+const title = "Bostancı Kepçe Kiralama ve Moloz Taşıma – GNG Hafriyat";
+const description = "Bostancı'da kiralık kepçe, moloz taşıma ve tesviye. Sahil hattı ve site içi işlerde mini kepçe, aynı gün kamyon. 0537 743 61 20";
+const jsonLd = [localBusinessJson(), faqJson(), breadcrumbJson([{name:"Ana Sayfa",url:SITE.url+"/"},{name:"Bostancı Kepçe Kiralama",url:SITE.url+"/bostanci-kepce-kiralama"}])];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+<div class="wrap"><p class="breadcrumb"><a href="/">Ana Sayfa</a> / Bostancı Kepçe Kiralama</p>
+<h1>Bostancı Kepçe Kiralama ve Hafriyat</h1>
+<p>Bostancı; sahil hattı, siteler ve çarşı çevresindeki apartman tadilatlarıyla Kepçe işinin en yoğun olduğu Kadıköy mahallelerindendir. GNG Hafriyat olarak Bostancı'ya <strong>mini kepçe ile dar alan girişi</strong>, site kurallarına uygun sessiz saat planlaması ve <strong>aynı gün moloz kamyonu</strong> sunuyoruz. Sahil yolu lojistiğini bildiğimiz için sefer beklemezsiniz.</p>
+<h2>Bostancı'da yaptıklarımız</h2>
+<ul><li>Bodrum ve bahçe katı moloz çıkarma, çuvallı moloz taşıma</li><li>Site içi tesviye, otopark ve peyzaj alanı düzenleme</li><li>Dükkan ve ofis tadilatı sonrası inşaat atığı kaldırma</li><li>Kanal ve drenaj kazısı, temel dolgusu</li></ul>
+<div class="hero-cta"><a class="btn primary big" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a><a class="btn big" style="background:#22c55e;color:#052e16" href={SITE.whatsapp} target="_blank" rel="noopener">WhatsApp'tan Fiyat Al</a></div>
+<p class="muted"><a href="/kadikoy-kiralik-kepce">Kadıköy Kiralık Kepçe</a> · <a href="/kadikoy-hafriyat">Kadıköy Hafriyat</a> · <a href="/fiyatlar">Fiyatlar</a></p>
+</div>
+</Base>
